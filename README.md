@@ -14,9 +14,9 @@ Add namespace in your code
 
 ```html
 <html xmlns:time="http://typo3.org/ns/Woit/WoitNsreadtime/ViewHelpers" data-namespace-typo3-fluid="true"></html>
+```
 
 or
-```
 
 ```html
 {namespace time=Woit\WoitNsreadtime\ViewHelpers}
