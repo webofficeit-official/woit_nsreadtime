@@ -20,7 +20,6 @@ final class ReadtimeViewHelper extends AbstractViewHelper {
     public function initializeArguments()
     {
         $this->registerArgument('newsId', 'int', 'News id for check read time', true);
-        $this->registerArgument('format', 'boolean', 'Type of return value as 00:00:00', false);
     }
 
     public static function renderStatic(array $arguments, Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
@@ -41,19 +40,14 @@ final class ReadtimeViewHelper extends AbstractViewHelper {
         $hours = floor($minutes / 60);
         $minutes %= 60;
 
-
-        $time = ($hours == 00 ? '' : $hours . ' hour' . ($hours == 1 ? '' : 's') . ', ') . ($minutes == 00 ? '' : $minutes . ' minute' . ($minutes == 1 ? '' : 's') . ', ') . ($seconds == 00 ? '' : $seconds . ' second' . ($seconds == 1 ? '' : 's'));
-
-        if($arguments['format']) {
-            if($minutes == 00 && $hours == 00) {
-                $time = sprintf('%02d', $seconds) . ' seconds';
-            }
-            else if($hours == 00) {
-                $time = sprintf('%02d:%02d', $minutes, $seconds) . ' minutes' ;
-            } 
-            else {
-                $time = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds) . ' hours';
-            }
+        if($minutes == 00 && $hours == 00) {
+            $time = sprintf('%02d', $seconds) . ' seconds';
+        }
+        else if($hours == 00) {
+            $time = sprintf('%02d:%02d', $minutes, $seconds) . ' minutes' ;
+        } 
+        else {
+            $time = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds) . ' hours';
         }
 
         return $time;

@@ -13,13 +13,13 @@ the extension in the Extension Manager of your TYPO3 installation.
 Add namespace in your code
 
 ```html
-    {namespace time=Woit\WoitNsreadtime\ViewHelpers}
-```
+<html xmlns:time="http://typo3.org/ns/Woit/WoitNsreadtime/ViewHelpers" data-namespace-typo3-fluid="true"></html>
 
 or
+```
 
 ```html
-    <html xmlns:time="http://typo3.org/ns/Woit/WoitNsreadtime/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace time=Woit\WoitNsreadtime\ViewHelpers}
 ```
 
 You can use either one of them to add namespace in your template
@@ -27,17 +27,7 @@ You can use either one of them to add namespace in your template
 In your news template, add the following code:
 
 ```html
-    <time:readtime newsId="{CURRENT_NEWS_ID}"  />
+<time:readtime newsId="{CURRENT_NEWS_ID}"  />
 ```
 
 Replace CURRENT_NEWS_ID woith the ID of your current news item. This code will render the estimated reading time for your news post based on the content.
-
-## Argument
-
-If you add format="true" it will render as 00:00:00
-
-```html
-    <time:readtime newsId="{CURRENT_NEWS_ID}" format="true" />
-```
-
-The default value will be 00 hours, 00 minutes, 00 seconds
