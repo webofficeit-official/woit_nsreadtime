@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => '[WIT] News Read Time',
+    'title' => '[WOIT] News Read Time',
     'description' => 'This extension is useful for displaying read time in  news detail view.',
     'category' => 'services',
     'author' => 'Team WebofficeIT, Rahul R S',
