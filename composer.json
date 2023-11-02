@@ -1,0 +1,38 @@
+{
+    "name": "woit/woit-nsreadtime",
+    "type": "typo3-cms-extension",
+    "description": "This extension is useful for displaying read time in  news detail view.",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "news",
+        "woit",
+        "nsreadtime"
+    ],
+    "homepage": "https://extensions.typo3.org/extension/woit_nsreadtime",
+    "authors": [
+        {
+            "name": "Team WebofficeIT, Rahul R S",
+            "email": "info@webofficeit.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+       "source": "https://github.com/webofficeit-official/woit_nsreadtime"
+    },
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "typo3/cms-core": "^10.4 || ^11",
+        "georgringer/news": "^9.4 || ^10 || ^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Woit\\WoitNsreadtime\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "woit_nsreadtime"
+        }
+    }
+}
