@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-11-01UTC16:28:230">
+        <header>
+            <authorName>Rahul R S</authorName>
+            <authorEmail>info@webofficeit.com</authorEmail>
+        </header>
+        <body>
+            <trans-unit id="nsreadtime.title">
+                <source>Estimated reading time</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

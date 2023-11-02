@@ -1,0 +1,7 @@
+plugin.tx_news {
+   view {
+      templateRootPath = EXT:woit_nsreadtime/Resources/Private/Templates/
+      partialRootPath = EXT:woit_nsreadtime/Resources/Private/Partials/
+      layoutRootPath = EXT:woit_nsreadtime/Resources/Private/Layouts/
+   }
+}
