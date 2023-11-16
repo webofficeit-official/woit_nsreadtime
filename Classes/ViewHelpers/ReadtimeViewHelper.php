@@ -31,10 +31,30 @@ final class ReadtimeViewHelper extends AbstractViewHelper {
             ->where(
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($arguments['newsId']))
             )
-            ->execute()
+            ->executeQuery()
             ->fetchAssociative();
             
         $word = str_word_count(strip_tags($data['bodytext']));
+
+        $contentElementQueryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+        $contentElements = $contentElementQueryBuilder
+            ->select('*')
+            ->from('tt_content')
+            ->orWhere(
+                $contentElementQueryBuilder->expr()->eq('CType', $contentElementQueryBuilder->createNamedParameter('text')),
+                $contentElementQueryBuilder->expr()->eq('CType', $contentElementQueryBuilder->createNamedParameter('textpic')),
+                $contentElementQueryBuilder->expr()->eq('CType', $contentElementQueryBuilder->createNamedParameter('textmedia'))
+            )
+            ->andWhere(
+                $contentElementQueryBuilder->expr()->eq('tx_news_related_news', $contentElementQueryBuilder->createNamedParameter($arguments['newsId']))
+            )
+            ->executeQuery()
+            ->fetchAllAssociative();
+
+        foreach($contentElements as $elements) {
+            $word += str_word_count(strip_tags($elements['bodytext']));
+        }
+
         $minutes = floor($word / 200);
         $seconds = floor($word % 200 / (200 / 60));
         $hours = floor($minutes / 60);
